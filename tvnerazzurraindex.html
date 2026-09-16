@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Nerazzurra - La casa degli interisti</title>
+    <style>
+        :root {
+            --inter-black: #0b0f19;
+            --inter-blue: #00529b;
+            --inter-bright-blue: #00bfff;
+            --inter-gold: #ffcc00;
+            --card-bg: #151a28;
+            --text-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--inter-black);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #020408, var(--inter-blue));
+            padding: 25px 15px;
+            text-align: center;
+            border-bottom: 4px solid var(--inter-gold);
+            box-shadow: 0 4px 20px rgba(0, 82, 155, 0.4);
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-badge {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0, 191, 255, 0.6);
+        }
+
+        .stars {
+            color: var(--inter-gold);
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+        }
+
+        header h1 {
+            margin: 5px 0 0 0;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 0.95rem;
+            color: var(--inter-bright-blue);
+            font-style: italic;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #05070c;
+            padding: 12px;
+            gap: 25px;
+            border-bottom: 1px solid #1f283d;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover, nav a.youtube-btn {
+            color: var(--inter-gold);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+
+        /* Sezione Video in Primo Piano */
+        .featured-video {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 35px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+            border: 1px solid #1f283d;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Ratio */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .featured-info {
+            padding: 20px;
+        }
+
+        .featured-info h2 {
+            margin-top: 0;
+            color: var(--inter-bright-blue);
+            font-size: 1.4rem;
+        }
+
+        .featured-info p {
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            background-color: var(--inter-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+            border: 1px solid var(--inter-bright-blue);
+        }
+
+        .btn-action:hover {
+            background-color: var(--inter-bright-blue);
+            color: #000;
+        }
+
+        /* Sezione Griglia */
+        .grid-title {
+            border-left: 4px solid var(--inter-gold);
+            padding-left: 12px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+            border: 1px solid #1f283d;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--inter-blue);
+        }
+
+        .video-card-placeholder {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(45deg, #05070c, #002b5c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--inter-gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--inter-blue);
+        }
+
+        .video-card-content {
+            padding: 15px;
+        }
+
+        .video-card-content h3 {
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: #fff;
+        }
+
+        .video-card-content p {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #05070c;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #777;
+            border-top: 1px solid #1f283d;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="stars">⭐⭐</div>
+            <div class="logo-badge">TV NERAZZURRA</div>
+            <h1>La casa degli interisti</h1>
+            <p>🖤💙 L'informazione interista la trovi solo qui: Notizie, calciomercato, live, ospiti e tanto altro! 🐍</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="https://www.youtube.com/@TvNerazzurra/videos" target="_blank" class="youtube-btn">🔴 Canale YouTube Ufficiale</a>
+        <a href="#">Live & Dirette</a>
+        <a href="#">Calciomercato</a>
+    </nav>
+
+    <div class="container">
+        <!-- Video Principale in Evidenza -->
+        <div class="featured-video">
+            <div class="video-wrapper">
+                <!-- Sostituisci l'ID del video con l'ultimo caricato su YouTube -->
+                <iframe src="https://www.youtube.com/embed/live_stream?channel=UCv... (oppure inserisci un ID video specifico)" allowfullscreen></iframe>
+            </div>
+            <div class="featured-info">
+                <h2>⚫️🔵 Diretta Ultim'ora & Dibattito Live</h2>
+                <p>Segui tutti gli aggiornamenti in tempo reale, le analisi tattiche e le voci direttamente dalla nostra community nerazzurra.</p>
+                <a href="https://www.youtube.com/@TvNerazzurra/videos" target="_blank" class="btn-action">Iscriviti al Canale YouTube</a>
+            </div>
+        </div>
+
+        <h2 class="grid-title">Ultime Video News & Approfondimenti</h2>
+        
+        <!-- Griglia dei video secondari -->
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-card-placeholder">TV NERAZZURRA</div>
+                <div class="video-card-content">
+                    <h3>Speciale Calciomercato: le ultime trattative</h3>
+                    <p>Aggiornamenti e retroscena esclusivi</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-card-placeholder">TV NERAZZURRA</div>
+                <div class="video-card-content">
+                    <h3>Live Post-Partita con gli ospiti in studio</h3>
+                    <p>Commenti a caldo e pagelle nerazzurre</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <div class="video-card-placeholder">TV NERAZZURRA</div>
+                <div class="video-card-content">
+                    <h3>Focus Tattico: l'analisi della squadra</h3>
+                    <p>Approfondimenti sul modulo e la condizione atletica</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TV Nerazzurra - La casa degli interisti. Tutti i diritti riservati.</p>
+    </footer>
+
+</body>
+</html>
