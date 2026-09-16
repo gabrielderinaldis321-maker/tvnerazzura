@@ -37,7 +37,6 @@
             gap: 5px;
         }
 
-        /* Stile Logo Immagine */
         .site-logo {
             width: 90px;
             height: 90px;
@@ -69,7 +68,6 @@
             font-style: italic;
         }
 
-        /* Barra di Navigazione */
         nav {
             display: flex;
             justify-content: center;
@@ -103,11 +101,6 @@
             padding: 0 15px;
         }
 
-        /* Sezione Notizie / Rassegna Stampa */
-        .news-section {
-            margin-bottom: 40px;
-        }
-
         .section-title {
             border-left: 4px solid var(--inter-gold);
             padding-left: 12px;
@@ -117,64 +110,21 @@
             letter-spacing: 1px;
         }
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .news-card {
+        /* Sezione Notizie in Tempo Reale */
+        .news-container {
             background-color: var(--card-bg);
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 20px;
             border: 1px solid #1f283d;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-            transition: transform 0.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            margin-bottom: 40px;
         }
 
-        .news-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--inter-blue);
+        /* Stile per il widget RSS dinamico */
+        .rss-feed-box {
+            color: #ccc;
+            font-size: 0.95rem;
         }
 
-        .news-source {
-            font-size: 0.75rem;
-            color: var(--inter-gold);
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
-        }
-
-        .news-card h3 {
-            font-size: 1.1rem;
-            margin: 0 0 10px 0;
-            color: #fff;
-            line-height: 1.4;
-        }
-
-        .news-card p {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-
-        .read-more {
-            color: var(--inter-bright-blue);
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.85rem;
-            align-self: flex-start;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-
-        /* Sezione Video in Primo Piano */
         .featured-video {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -186,7 +136,7 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Ratio */
+            padding-bottom: 56.25%;
             height: 0;
         }
 
@@ -209,12 +159,6 @@
             font-size: 1.4rem;
         }
 
-        .featured-info p {
-            color: #ccc;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
         .btn-action {
             display: inline-block;
             background-color: var(--inter-blue);
@@ -234,7 +178,6 @@
             color: #000;
         }
 
-        /* Sezione Info & Richieste (Contatti) */
         .info-box {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -271,7 +214,6 @@
 
     <header>
         <div class="logo-container">
-            <!-- Inserisci qui il link o il file del logo ufficiale -->
             <img src="image_cb1b3c.jpg" alt="Logo TV Nerazzurra" class="site-logo">
             <div class="stars">⭐⭐</div>
             <h1>TV Nerazzurra</h1>
@@ -279,18 +221,17 @@
         </div>
     </header>
 
-    <!-- Barra di Navigazione Selezionabile -->
     <nav>
         <a href="#home" class="active">Home</a>
         <a href="https://www.youtube.com/@TvNerazzurra/videos" target="_blank">Canale YouTube</a>
-        <a href="#notizie">News & Quotidiani</a>
+        <a href="#notizie">News in Tempo Reale</a>
         <a href="#live">Dirette Live</a>
         <a href="#info">Info & Richieste</a>
     </nav>
 
     <div class="container" id="home">
         
-        <!-- Video Principale / Diretta in Evidenza -->
+        <!-- Video Principale / Diretta -->
         <div class="featured-video" id="live">
             <div class="video-wrapper">
                 <iframe src="https://www.youtube.com/embed/live_stream?channel=UCv..." allowfullscreen></iframe>
@@ -302,40 +243,18 @@
             </div>
         </div>
 
-        <!-- Sezione Notizie in Evidenza (ispirata ai principali quotidiani sportivi) -->
-        <div class="news-section" id="notizie">
-            <h2 class="section-title">Ultime Notizie & Rassegna Stampa</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div>
-                        <div class="news-source">La Gazzetta dello Sport / Focus</div>
-                        <h3>Le ultime di formazione in vista del prossimo big match di campionato</h3>
-                        <p>Tutti gli aggiornamenti tattici direttamente dagli allenamenti di Appiano Gentile e le scelte del mister.</p>
-                    </div>
-                    <a href="https://www.gazzetta.it" target="_blank" class="read-more">Leggi su La Gazzetta &rarr;</a>
-                </div>
-
-                <div class="news-card">
-                    <div>
-                        <div class="news-source">Corriere dello Sport / Mercato</div>
-                        <h3>Trattative e retroscena: le manovre della dirigenza nerazzurra</h3>
-                        <p>I nomi caldi per rinforzare la rosa in vista della prossima sessione di calciomercato.</p>
-                    </div>
-                    <a href="https://www.corrieredellosport.it" target="_blank" class="read-more">Leggi sul Corriere &rarr;</a>
-                </div>
-
-                <div class="news-card">
-                    <div>
-                        <div class="news-source">Tuttosport / Approfondimenti</div>
-                        <h3>Statistiche e confronti: l'andamento della squadra in Europa</h3>
-                        <p>Analisi dettagliate sui dati fisici, il possesso palla e rendimento dei singoli reparti.</p>
-                    </div>
-                    <a href="https://www.tuttosport.com" target="_blank" class="read-more">Leggi su Tuttosport &rarr;</a>
-                </div>
+        <!-- Sezione Notizie in Tempo Reale tramite Widget RSS -->
+        <div class="news-container" id="notizie">
+            <h2 class="section-title">Ultime Notizie Ufficiali in Tempo Reale</h2>
+            <div class="rss-feed-box">
+                <!-- Widget RSS incorporato che si aggiorna in automatico dal web -->
+                <script src="https://rss.app/embedvue/v1/feed.js" type="text/javascript"></script>
+                <rssapp-feed id="INTER_FEED_ID"></rssapp-feed>
+                <p style="font-size: 0.85rem; color: #888; text-align: center; margin-top: 15px;">Le notizie si aggiornano in tempo reale direttamente dai canali ufficiali e dai principali portali sportivi.</p>
             </div>
         </div>
 
-        <!-- Sezione Info, Richieste e Contatti per la pagina -->
+        <!-- Sezione Info & Richieste -->
         <div class="info-box" id="info">
             <h3>ℹ️ Info, Collaborazioni & Richieste</h3>
             <p>Hai domande, vuoi proporre una collaborazione, intervenire come ospite nelle nostre dirette o inviarci segnalazioni? TV Nerazzurra è la voce dei tifosi: puoi contattarci direttamente attraverso i nostri canali social ufficiali o fare riferimento alla nostra pagina Facebook ufficiale per qualsiasi richiesta o chiarimento editoriale.</p>
