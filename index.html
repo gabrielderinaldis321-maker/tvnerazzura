@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TV Nerazzurra - La casa degli interisti</title>
+    <title>TV Nerazzurra - La casa degli interisti | Notizie, Live & Calciomercato</title>
     <style>
         :root {
             --inter-black: #0b0f19;
@@ -11,7 +11,9 @@
             --inter-bright-blue: #00bfff;
             --inter-gold: #ffcc00;
             --card-bg: #151a28;
+            --card-hover: #1c2438;
             --text-color: #ffffff;
+            --text-muted: #a0aec0;
         }
 
         body {
@@ -25,7 +27,7 @@
 
         header {
             background: linear-gradient(135deg, #020408, var(--inter-blue));
-            padding: 30px 15px;
+            padding: 35px 15px;
             text-align: center;
             border-bottom: 4px solid var(--inter-gold);
             box-shadow: 0 4px 20px rgba(0, 82, 155, 0.5);
@@ -62,7 +64,7 @@
 
         header h1 {
             margin: 5px 0 0 0;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -71,12 +73,12 @@
 
         header p {
             margin: 5px 0 0 0;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--inter-bright-blue);
             font-style: italic;
         }
 
-        /* Barra di Navigazione Interna Fluida */
+        /* Barra di Navigazione Fissa */
         nav {
             display: flex;
             justify-content: center;
@@ -110,7 +112,7 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 30px auto;
             padding: 0 15px;
         }
@@ -123,12 +125,22 @@
             border-left: 4px solid var(--inter-gold);
             padding-left: 12px;
             margin-bottom: 25px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Sezione Biografia / Chi Siamo */
+        .section-title span {
+            font-size: 0.8rem;
+            color: var(--inter-bright-blue);
+            text-transform: none;
+            font-weight: normal;
+        }
+
+        /* Biografia */
         .bio-box {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -136,20 +148,20 @@
             border: 1px solid #1f283d;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             line-height: 1.7;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #ddd;
         }
 
         .bio-box h3 {
             color: var(--inter-gold);
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
-        /* Griglia Notizie stile Testata Sportiva */
+        /* Griglia Notizie Ricca (Stile Testata Sportiva) */
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
 
@@ -162,21 +174,28 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
         }
 
         .news-card:hover {
             transform: translateY(-4px);
             border-color: var(--inter-bright-blue);
+            background-color: var(--card-hover);
         }
 
-        .news-tag {
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
             font-size: 0.75rem;
             color: var(--inter-gold);
             text-transform: uppercase;
             font-weight: bold;
             margin-bottom: 8px;
             letter-spacing: 1px;
+        }
+
+        .news-time {
+            color: var(--text-muted);
         }
 
         .news-card h3 {
@@ -187,9 +206,9 @@
         }
 
         .news-card p {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
             line-height: 1.5;
         }
 
@@ -199,19 +218,31 @@
             font-weight: bold;
             font-size: 0.85rem;
             align-self: flex-start;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .news-link:hover {
             text-decoration: underline;
         }
 
-        /* Sezione Video / Live */
-        .featured-video {
+        /* Griglia Video YouTube Ufficiali */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
             background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
             border: 1px solid #1f283d;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .video-wrapper {
@@ -229,23 +260,24 @@
             border: none;
         }
 
-        .featured-info {
-            padding: 25px;
+        .video-info {
+            padding: 20px;
         }
 
-        .featured-info h3 {
-            margin-top: 0;
-            color: var(--inter-bright-blue);
-            font-size: 1.3rem;
+        .video-info h3 {
+            margin: 0 0 10px 0;
+            color: #fff;
+            font-size: 1.1rem;
+            line-height: 1.4;
         }
 
-        .featured-info p {
-            color: #ccc;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .video-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
         }
 
-        /* Sezione Contatti */
+        /* Contatti */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -263,6 +295,11 @@
         .contact-box h3 {
             color: var(--inter-gold);
             margin-top: 0;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         .btn-action {
@@ -287,11 +324,11 @@
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 35px;
             background-color: #05070c;
             margin-top: 50px;
             font-size: 0.85rem;
-            color: #777;
+            color: var(--text-muted);
             border-top: 1px solid #1f283d;
         }
     </style>
@@ -303,16 +340,15 @@
             <div class="site-logo-badge">TVN</div>
             <div class="stars">⭐⭐</div>
             <h1>TV Nerazzurra</h1>
-            <p>🖤💙 La casa degli interisti: Notizie, calciomercato, live, ospiti e tanto altro! 🐍</p>
+            <p>🖤💙 La casa degli interisti: Notizie, calciomercato, live, opinioni e community 🐍</p>
         </div>
     </header>
 
-    <!-- Menu di navigazione rapido all'interno della stessa pagina -->
     <nav>
         <a href="#biografia">Chi Siamo</a>
         <a href="#notizie">Notizie in Tempo Reale</a>
-        <a href="#dirette">Canale & Dirette</a>
-        <a href="#contatti">Contatti & Info</a>
+        <a href="#youtube">Canale YouTube & Video</a>
+        <a href="#contatti">Contatti & Social</a>
     </nav>
 
     <div class="container">
@@ -320,72 +356,161 @@
         <!-- SEZIONE BIOGRAFIA -->
         <section id="biografia">
             <div class="bio-box">
-                <h3>🐍 Biografia & Storia di TV Nerazzurra</h3>
-                <p><strong>TV Nerazzurra</strong> nasce dalla viscerale passione per i colori nerazzurri e dal desiderio di creare un punto di riferimento digitale pulito, indipendente e interamente dedicato alla community interista. Un canale e uno spazio web in cui l'informazione quotidiana, l'analisi tattica, le trattative di calciomercato e il dibattito aperto si uniscono per dare voce ai tifosi di ogni angolo d'Italia. Che si tratti di commentare il post-partita di Champions League o le dinamiche di Appiano Gentile, qui trovi la tua vera casa nerazzurra.</p>
+                <h3>🐍 Biografia & Missione di TV Nerazzurra</h3>
+                <p><strong>TV Nerazzurra</strong> nasce dalla viscerale passione per i colori nerazzurri e dall'ambizione di creare un punto di riferimento digitale indipendente, pulito e interamente dedicato alla community interista. Un portale e un canale nei quali l'informazione quotidiana, l'approfondimento tattico, le ultime di calciomercato e il dibattito aperto si uniscono per dare voce ai tifosi di ogni angolo d'Italia. Qui troverai aggiornamenti continui e contenuti video esclusivi per vivere ogni giorno il mondo Inter in prima fila.</p>
             </div>
         </section>
 
         <!-- SEZIONE NOTIZIE IN TEMPO REALE -->
         <section id="notizie">
-            <h2 class="section-title">Ultime Notizie & Aggiornamenti Live</h2>
+            <div class="section-title">
+                Ultime Notizie & Aggiornamenti Live 
+                <span>Feed in tempo reale dalle principali testate sportive</span>
+            </div>
+            
             <div class="news-grid">
+                <!-- Notizia 1 -->
                 <div class="news-card">
                     <div>
-                        <div class="news-tag">Appiano Gentile • Squadra</div>
+                        <div class="news-meta">
+                            <span>Squadra • Appiano Gentile</span>
+                            <span class="news-time">In aggiornamento</span>
+                        </div>
                         <h3>Rifinitura e convocazioni: le ultime scelte in vista del big match</h3>
-                        <p>Aggiornamenti in tempo reale dal centro sportivo, la situazione degli infortunati e le prove di formazione del mister.</p>
+                        <p>Tutti gli aggiornamenti in tempo reale dal centro sportivo, la gestione delle energie della rosa e le prove tattiche del mister in vista della prossima sfida di campionato.</p>
                     </div>
-                    <a href="https://www.gazzetta.it/Calcio/Squadre/Inter" target="_blank" class="news-link">Leggi su La Gazzetta dello Sport &rarr;</a>
+                    <a href="https://www.fcinternews.it" target="_blank" class="news-link">Leggi su FCInterNews &rarr;</a>
                 </div>
 
+                <!-- Notizia 2 -->
                 <div class="news-card">
                     <div>
-                        <div class="news-tag">Calciomercato • Trattative</div>
+                        <div class="news-meta">
+                            <span>Calciomercato • Trattative</span>
+                            <span class="news-time">Live 24h</span>
+                        </div>
                         <h3>Strategie della dirigenza: sondaggi, rinnovi e retroscena</h3>
-                        <p>Tutti i movimenti di mercato, le analisi sulle prospettive future e le voci direttamente dai principali insider sportivi.</p>
+                        <p>I movimenti di mercato monitorati dagli operatori di settore, le analisi sulle prospettive future e i contatti in sede per programmare i rinforzi della squadra.</p>
                     </div>
-                    <a href="https://www.corrieredellosport.it/calcio/serie-a/inter" target="_blank" class="news-link">Leggi sul Corriere dello Sport &rarr;</a>
+                    <a href="https://www.fcinter1908.it" target="_blank" class="news-link">Leggi su FCInter1908 &rarr;</a>
                 </div>
 
+                <!-- Notizia 3 -->
                 <div class="news-card">
                     <div>
-                        <div class="news-tag">Analisi • Rassegna Stampa</div>
-                        <h3>Focus tattico, statistiche approfondite e commenti</h3>
-                        <p>I dati chiave della squadra, i confronti numerici e i pareri autorevoli della stampa nazionale sul cammino nerazzurro.</p>
+                        <div class="news-meta">
+                            <span>Approfondimento • Rassegna</span>
+                            <span class="news-time">Oggi</span>
+                        </div>
+                        <h3>Focus tattico, statistiche avanzate e pareri della stampa</h3>
+                        <p>I dati chiave sull'andamento stagionale, le analisi numeriche sulla mole offensiva e i commenti autorevoli dei principali editorialisti sportivi.</p>
                     </div>
-                    <a href="https://www.tuttosport.com/calcio/serie-a/inter" target="_blank" class="news-link">Leggi su Tuttosport &rarr;</a>
+                    <a href="https://www.linterista.it" target="_blank" class="news-link">Leggi su L'Interista &rarr;</a>
+                </div>
+
+                <!-- Notizia 4 -->
+                <div class="news-card">
+                    <div>
+                        <div class="news-meta">
+                            <span>Esclusive • Interviste</span>
+                            <span class="news-time">Primo Piano</span>
+                        </div>
+                        <h3>Le parole dei protagonisti: conferenze e dichiarazioni</h3>
+                        <p>Le voci ufficiali direttamente dalla sala stampa e dai ritiri della squadra, con le dichiarazioni integrali post-partita e i retroscena raccontati dai tesserati.</p>
+                    </div>
+                    <a href="https://www.inter.it/it/notizie" target="_blank" class="news-link">Leggi su Inter.it &rarr;</a>
+                </div>
+
+                <!-- Notizia 5 -->
+                <div class="news-card">
+                    <div>
+                        <div class="news-meta">
+                            <span>Editoriali • Opinioni</span>
+                            <span class="news-time">Approfondimenti</span>
+                        </div>
+                        <h3>Analisi sul campionato e prospettive europee</h3>
+                        <p>Il punto della situazione sul percorso dei nerazzurri tra competizioni nazionali e palcoscenici internazionali, con confronti e statistiche storiche.</p>
+                    </div>
+                    <a href="https://www.sportmediaset.mediaset.it/mercato/inter/" target="_blank" class="news-link">Leggi su SportMediaset &rarr;</a>
+                </div>
+
+                <!-- Notizia 6 -->
+                <div class="news-card">
+                    <div>
+                        <div class="news-meta">
+                            <span>Settore Giovanile • U23</span>
+                            <span class="news-time">Talenti</span>
+                        </div>
+                        <h3>I giovani in evidenza e gli aggiornamenti dal vivaio</h3>
+                        <p>I progressi dei prospetti nerazzurri impegnati nei campionati giovanili e le novità sui talenti in rampa di lancio monitorati attentamente dallo staff tecnico.</p>
+                    </div>
+                    <a href="https://www.fcinternews.it" target="_blank" class="news-link">Leggi su FCInterNews &rarr;</a>
                 </div>
             </div>
         </section>
 
-        <!-- SEZIONE DIRETTE YOUTUBE -->
-        <section id="dirette">
-            <h2 class="section-title">Canale YouTube & Dirette Streaming</h2>
-            <div class="featured-video">
-                <div class="video-wrapper">
-                    <!-- Sostituisci "dQw4w9WgXcQ" con il codice del tuo video o della tua live quando vuoi -->
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <!-- SEZIONE CANALE YOUTUBE & VIDEO -->
+        <section id="youtube">
+            <div class="section-title">
+                Canale YouTube & Ultimi Video
+                <span>I contenuti multimediali ufficiali dal canale @TvNerazzurra</span>
+            </div>
+
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/XPcdFgepB5s" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>INTER-NAPOLI AL CARDIOPALMA, LE SENSAZIONI E IL COMMENTO DEL MATCH</h3>
+                        <p>Analisi a caldo e sensazioni post-partita sulla supersfida dei nerazzurri.</p>
+                        <a href="http://www.youtube.com/watch?v=XPcdFgepB5s" target="_blank" class="news-link">Guarda su YouTube &rarr;</a>
+                    </div>
                 </div>
-                <div class="featured-info">
-                    <h3>⚫️🔵 Segui i nostri approfondimenti video</h3>
-                    <p>Commenti a caldo, collegamenti live con la community, dibattiti e opinioni senza filtri sul mondo Inter.</p>
-                    <a href="https://www.youtube.com/@TvNerazzurra/videos" target="_blank" class="btn-action">Visita il Canale YouTube Ufficiale</a>
+
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/lJX4GDCGGtA" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>POST GARA INTER-UDINESE</h3>
+                        <p>Commenti, analisi tattica e reazioni della community dopo il match di campionato.</p>
+                        <a href="http://www.youtube.com/watch?v=lJX4GDCGGtA" target="_blank" class="news-link">Guarda su YouTube &rarr;</a>
+                    </div>
                 </div>
+
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/02pEVAcOz3o" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>L'INTER FA IL DOBLETE E VINCE LA COPPA ITALIA</h3>
+                        <p>Approfondimento speciale sui trionfi stagionali e la gioia nerazzurra.</p>
+                        <a href="http://www.youtube.com/watch?v=02pEVAcOz3o" target="_blank" class="news-link">Guarda su YouTube &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.youtube.com/@TvNerazzurra/videos" target="_blank" class="btn-action" style="font-size: 1rem; padding: 14px 30px;">Visita l'archivio completo su YouTube</a>
             </div>
         </section>
 
         <!-- SEZIONE CONTATTI -->
         <section id="contatti">
-            <h2 class="section-title">Contatti & Interventi</h2>
+            <div class="section-title">Contatti & Community</div>
             <div class="contact-grid">
                 <div class="contact-box">
-                    <h3>💬 Community & Social</h3>
-                    <p>Vuoi partecipare alle discussioni o restare aggiornato su ogni contenuto pubblicato?</p>
+                    <h3>💬 Canale Facebook</h3>
+                    <p>Unisciti alla nostra pagina ufficiale per commentare in diretta ogni notizia e risultato.</p>
                     <a href="https://www.facebook.com/people/TV-Nerazzurra/61577051471293/" target="_blank" class="btn-action">Seguici su Facebook</a>
                 </div>
                 <div class="contact-box">
-                    <h3>📩 Collaborazioni & Segnalazioni</h3>
-                    <p>Hai domande, idee per le dirette o vuoi proporre una collaborazione editoriale?</p>
+                    <h3>📩 Redazione & Segnalazioni</h3>
+                    <p>Contattaci per proporre idee, collaborazioni o partecipare alle nostre dirette.</p>
                     <a href="mailto:contatti@tvnerazzurra.it" class="btn-action">Scrivici via Email</a>
                 </div>
             </div>
