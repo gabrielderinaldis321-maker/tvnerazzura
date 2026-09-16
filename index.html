@@ -24,10 +24,10 @@
 
         header {
             background: linear-gradient(135deg, #020408, var(--inter-blue));
-            padding: 25px 15px;
+            padding: 30px 15px;
             text-align: center;
             border-bottom: 4px solid var(--inter-gold);
-            box-shadow: 0 4px 20px rgba(0, 82, 155, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 82, 155, 0.5);
         }
 
         .logo-container {
@@ -37,49 +37,58 @@
             gap: 10px;
         }
 
-        .site-logo {
-            width: 100px;
-            height: 100px;
+        /* Logo Vettoriale d'impatto (Garantito al 100%) */
+        .site-logo-badge {
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
+            background: radial-gradient(circle, #002b5c 0%, #000000 100%);
             border: 3px solid var(--inter-gold);
-            object-fit: cover;
-            background-color: #000;
-            box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+            font-weight: 900;
+            font-size: 1.6rem;
+            color: #fff;
+            letter-spacing: 1px;
         }
 
         .stars {
             color: var(--inter-gold);
             font-size: 1.1rem;
-            letter-spacing: 5px;
+            letter-spacing: 6px;
         }
 
         header h1 {
             margin: 5px 0 0 0;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 2px 8px rgba(0, 191, 255, 0.5);
+            text-shadow: 0 2px 10px rgba(0, 191, 255, 0.6);
         }
 
         header p {
             margin: 5px 0 0 0;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--inter-bright-blue);
             font-style: italic;
         }
 
+        /* Barra di Navigazione Professionale */
         nav {
             display: flex;
             justify-content: center;
             background-color: #05070c;
-            padding: 12px;
-            gap: 20px;
+            padding: 14px;
+            gap: 15px;
             border-bottom: 1px solid #1f283d;
             flex-wrap: wrap;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         nav a {
@@ -87,21 +96,23 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 0.85rem;
-            transition: color 0.3s, background 0.3s;
+            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            padding: 8px 12px;
+            padding: 8px 14px;
             border-radius: 4px;
+            background-color: rgba(255,255,255,0.03);
         }
 
         nav a:hover, nav a.active {
             color: var(--inter-gold);
-            background-color: rgba(255, 204, 0, 0.1);
+            background-color: rgba(255, 204, 0, 0.15);
+            border-color: var(--inter-gold);
         }
 
         .container {
             max-width: 1100px;
-            margin: 25px auto;
+            margin: 30px auto;
             padding: 0 15px;
         }
 
@@ -109,24 +120,25 @@
             border-left: 4px solid var(--inter-gold);
             padding-left: 12px;
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
+        /* Griglia Articoli / Notizie stile Testata */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .news-card {
             background-color: var(--card-bg);
             border-radius: 8px;
-            padding: 20px;
+            padding: 22px;
             border: 1px solid #1f283d;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -148,7 +160,7 @@
         }
 
         .news-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin: 0 0 10px 0;
             color: #fff;
             line-height: 1.4;
@@ -173,11 +185,12 @@
             text-decoration: underline;
         }
 
+        /* Sezione Video / Live */
         .featured-video {
             background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.6);
             border: 1px solid #1f283d;
         }
@@ -198,7 +211,7 @@
         }
 
         .featured-info {
-            padding: 20px;
+            padding: 25px;
         }
 
         .featured-info h2 {
@@ -209,15 +222,15 @@
 
         .featured-info p {
             color: #ccc;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .btn-action {
             display: inline-block;
             background-color: var(--inter-blue);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
@@ -232,36 +245,9 @@
             color: #000;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .info-box {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 25px;
-            border: 1px solid #1f283d;
-        }
-
-        .info-box h3 {
-            color: var(--inter-gold);
-            margin-top: 0;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-        }
-
-        .info-box p {
-            color: #ccc;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 30px;
             background-color: #05070c;
             margin-top: 50px;
             font-size: 0.85rem;
@@ -274,80 +260,67 @@
 
     <header>
         <div class="logo-container">
-            <!-- Se non carica l'immagine, mostra direttamente le stelle e il titolo senza spazi vuoti -->
-            <img src="image_cb1b3c.jpg" alt="Logo TV Nerazzurra" class="site-logo" onerror="this.style.display='none'">
+            <!-- Logo vettoriale pulito, visibile sempre al 100% senza dipendere da immagini esterne -->
+            <div class="site-logo-badge">TVN</div>
             <div class="stars">⭐⭐</div>
             <h1>TV Nerazzurra</h1>
             <p>🖤💙 La casa degli interisti: Notizie, calciomercato, live, ospiti e tanto altro! 🐍</p>
         </div>
     </header>
 
+    <!-- Barra di Navigazione con link diretti alle pagine dedicate -->
     <nav>
-        <a href="#home" class="active">Home</a>
-        <a href="https://www.youtube.com/@TvNerazzurra/videos" target="_blank">Canale YouTube</a>
-        <a href="#notizie">News & Rassegna</a>
-        <a href="#live">Dirette Live</a>
-        <a href="#richieste">Richieste & Info</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="notizie.html">Notizie in Tempo Reale</a>
+        <a href="youtube.html">Canale YouTube & Live</a>
+        <a href="info.html">Info & Richieste</a>
     </nav>
 
-    <div class="container" id="home">
+    <div class="container">
         
-        <!-- Video in Primo Piano / Live di YouTube -->
-        <div class="featured-video" id="live">
+        <!-- Video Principale / Diretta -->
+        <div class="featured-video">
             <div class="video-wrapper">
-                <!-- Sostituisci "dQw4w9WgXcQ" con il codice del tuo video o della tua live di YouTube -->
+                <!-- Sostituisci "dQw4w9WgXcQ" con l'ID dell'ultima live o video YouTube -->
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
             </div>
             <div class="featured-info">
-                <h2>⚫️🔵 Diretta Live & Dibattito in Tempo Reale</h2>
-                <p>Segui i nostri collegamenti, le analisi a caldo e le opinioni della community nerazzurra.</p>
-                <a href="https://www.youtube.com/@TvNerazzurra/videos" target="_blank" class="btn-action">Iscriviti al Canale Ufficiale</a>
+                <h2>⚫️🔵 Ultima Diretta & Approfondimento Tattico</h2>
+                <p>Segui la nostra programmazione esclusiva, i commenti a caldo post-partita e le voci dei tifosi in diretta streaming.</p>
+                <a href="youtube.html" class="btn-action">Vai al Canale YouTube Ufficiale</a>
             </div>
         </div>
 
-        <!-- Sezione Notizie -->
-        <div id="notizie">
-            <h2 class="section-title">Ultime Notizie & Aggiornamenti Live</h2>
+        <!-- Sezione Anteprima Notizie -->
+        <div>
+            <h2 class="section-title">Ultime Notizie & Rassegna Stampa</h2>
             <div class="news-grid">
                 <div class="news-card">
                     <div>
-                        <div class="news-tag">Squadra & Formazione</div>
-                        <h3>Appiano Gentile: le ultime sulle condizioni dei convocati</h3>
-                        <p>Aggiornamenti in tempo reale dal campo d'allenamento e le scelte del tecnico in vista della prossima sfida.</p>
+                        <div class="news-tag">Squadra & Allenamenti</div>
+                        <h3>Appiano Gentile: il punto sulla preparazione in vista della prossima</h3>
+                        <p>Tutti gli aggiornamenti dal campo, le condizioni della rosa e le scelte tattiche provate dal mister.</p>
                     </div>
-                    <a href="https://www.gazzetta.it" target="_blank" class="news-link">Leggi i dettagli completi &rarr;</a>
+                    <a href="notizie.html" class="news-link">Leggi tutte le notizie &rarr;</a>
                 </div>
 
                 <div class="news-card">
                     <div>
-                        <div class="news-tag">Calciomercato</div>
-                        <h3>Trattative, sondaggi e retroscena della dirigenza</h3>
-                        <p>Tutti i movimenti di mercato, le voci sui rinnovi e le analisi sulle strategie future del club.</p>
+                        <div class="news-tag">Calciomercato Live</div>
+                        <h3>Trattative, sondaggi e retroscena esclusivi</h3>
+                        <p>I nomi caldi accostati ai colori nerazzurri e le manovre della dirigenza per il futuro.</p>
                     </div>
-                    <a href="https://www.corrieredellosport.it" target="_blank" class="news-link">Leggi i dettagli completi &rarr;</a>
+                    <a href="notizie.html" class="news-link">Leggi tutte le notizie &rarr;</a>
                 </div>
 
                 <div class="news-card">
                     <div>
-                        <div class="news-tag">Approfondimenti & Esclusive</div>
-                        <h3>Statistiche, focus tattico e rassegna stampa</h3>
-                        <p>I dati chiave del match, le analisi sui singoli reparti e i commenti della stampa sportiva nazionale.</p>
+                        <div class="news-tag">Opinioni & Focus</div>
+                        <h3>Editoriali, statistiche e analisi della stampa sportiva</h3>
+                        <p>I commenti approfonditi sui temi caldi del mondo nerazzurro e l'andamento in campionato ed Europa.</p>
                     </div>
-                    <a href="https://www.tuttosport.com" target="_blank" class="news-link">Leggi i dettagli completi &rarr;</a>
+                    <a href="notizie.html" class="news-link">Leggi tutte le notizie &rarr;</a>
                 </div>
-            </div>
-        </div>
-
-        <!-- Sezione Info & Community -->
-        <div class="info-grid" id="richieste">
-            <div class="info-box">
-                <h3>ℹ️ Informazioni sulla Pagina</h3>
-                <p><strong>TV Nerazzurra</strong> nasce per dare voce a tutti i tifosi. Un punto di incontro digitale dove passione, informazione indipendente e dibattito calcistico si fondono ogni giorno.</p>
-            </div>
-            <div class="info-box">
-                <h3>📩 Richieste & Interventi Live</h3>
-                <p>Vuoi proporre un argomento per le prossime dirette, intervenire come ospite o inviarci segnalazioni? Contattaci subito attraverso i nostri canali ufficiali.</p>
-                <a href="https://www.facebook.com/people/TV-Nerazzurra/61577051471293/" target="_blank" class="btn-action" style="margin-top: 15px;">Scrivici su Facebook</a>
             </div>
         </div>
 
